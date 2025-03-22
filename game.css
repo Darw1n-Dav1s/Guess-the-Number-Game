@@ -1,0 +1,109 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #303030;
+    color: #fff;
+}
+
+
+header {
+    background-color: #2196F3;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.between {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px); 
+}
+
+.container {
+    display: flex;
+}
+
+.guess {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: 2px solid #2196F3;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.check {
+    background-color: #2196F3;
+}
+
+.again {
+    background-color: #F44336;
+}
+
+
+.number {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+
+
+.message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    
+}
+
+.score-container {
+    padding: 1.5rem;
+    background-color: #2196F3;
+    border-radius: 5px;
+}
+
+.label-score, .label-highscore {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.score {
+    font-weight: bold;
+}
+
+
+.highscore {
+    font-weight: bold;
+    color: #F44336;
+}
+
+.right{
+    padding-left: 50px;
+    padding-bottom: 50%;
+}
