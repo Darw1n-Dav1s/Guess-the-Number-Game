@@ -35,4 +35,4 @@ A simple and interactive number-guessing game. The game challenges players to gu
 2. Navigate into the project folder:
    ```bash
    cd guess-my-number
-3. Open index.html in your browser or use a live server extension in VS Code.
+3. Open game.html in your browser or use a live server extension in VS Code.
