@@ -14,10 +14,24 @@
   </div>
 
   <div class="game-container hidden" id="gameContainer">
-    <header>
-      <h1>Guess My Number</h1>
-      <div class="number">?</div>
-      <div class="timer-box">⏱️ <span id="time">60</span>s</div>
+    <header class="header">
+      <div class="header-left">
+        <label class="theme-switch">
+          <input type="checkbox" id="themeToggle" />
+          <span class="slider">
+            <span class="icon" id="themeIcon">🌙</span>
+          </span>
+        </label>
+      </div>
+
+      <div class="header-center">
+        <h1>Guess My Number</h1>
+        <div class="number">?</div>
+      </div>
+
+      <div class="header-right">
+        <div class="timer-box">⏱️ <span id="time">60</span>s</div>
+      </div>
     </header>
 
     <main>
