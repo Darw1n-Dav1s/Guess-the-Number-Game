@@ -20,7 +20,7 @@ function startTimer() {
     if (timeLeft <= 0) {
       clearInterval(timer);
       displayMessage("Time's up! You lost.");
-      document.body.style.backgroundColor = "red";
+      document.body.style.backgroundColor = "var(--danger-color)";
       document.querySelector(".number").textContent = secretNumber;
     }
   }, 1000);
@@ -50,7 +50,7 @@ function resetGame() {
   document.querySelector(".number").textContent = "?";
   document.querySelector(".guess").value = "";
   document.querySelector(".score").textContent = score;
-  document.body.style.backgroundColor = "#121212";
+  document.body.style.backgroundColor = "var(--bg-color)";
   document.querySelector("h1").textContent = "Guess My Number";
   startTimer();
   updateLeaderboard();
@@ -63,7 +63,7 @@ document.querySelector(".check").addEventListener("click", () => {
   if (secretNumber === guess) {
     displayMessage("You guessed it right!");
     document.querySelector(".number").textContent = secretNumber;
-    document.body.style.backgroundColor = "#60b947";
+    document.body.style.backgroundColor = "var(--success-color)";
     clearInterval(timer);
 
     if (score > highscore) {
@@ -79,12 +79,20 @@ document.querySelector(".check").addEventListener("click", () => {
       displayMessage(guess < secretNumber ? "Too low!" : "Too high!");
     } else {
       displayMessage("You lost!");
-      document.body.style.backgroundColor = "red";
+      document.body.style.backgroundColor = "var(--danger-color)";
       document.querySelector(".number").textContent = secretNumber;
       clearInterval(timer);
     }
   }
 });
+
+// Allow Enter key to trigger the Check button
+document.querySelector(".guess").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    document.querySelector(".check").click();
+  }
+});
+
 
 document.querySelector(".again").addEventListener("click", resetGame);
 
@@ -93,3 +101,24 @@ document.getElementById("startBtn").addEventListener("click", () => {
   gameContainer.classList.remove("hidden");
   resetGame();
 });
+
+// Theme toggle logic
+const themeToggleInput = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+
+themeToggleInput.addEventListener("change", () => {
+  const isLight = themeToggleInput.checked;
+  document.body.classList.toggle("light-mode", isLight);
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+  themeIcon.textContent = isLight ? "🌞" : "🌙";
+});
+
+function applyStoredTheme() {
+  const theme = localStorage.getItem("theme");
+  const isLight = theme === "light";
+  document.body.classList.toggle("light-mode", isLight);
+  themeToggleInput.checked = isLight;
+  themeIcon.textContent = isLight ? "🌞" : "🌙";
+}
+
+applyStoredTheme();
