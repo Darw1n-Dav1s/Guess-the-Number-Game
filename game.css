@@ -1,146 +1,248 @@
+:root {
+  --bg-color: #121212;
+  --text-color: #fff;
+  --panel-color: #1e1e1e;
+  --button-color: #2196F3;
+  --button-hover: #1976d2;
+  --success-color: #60b947;
+  --danger-color: red;
+  --timer-color: #00ff91;
+}
+
+.light-mode {
+  --bg-color: #f0f0f0;
+  --text-color: #111;
+  --panel-color: #fff;
+  --button-color: #007acc;
+  --button-hover: #005fa3;
+  --success-color: #4caf50;
+  --danger-color: #e53935;
+  --timer-color: #ff5722;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .overlay {
-    text-align: center;
-    padding: 2rem;
-    background-color: #1e1e1e;
-    border-radius: 10px;
-    box-shadow: 0 0 20px #000;
-    max-width: 400px;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  .game-container {
-    width: 90%;
-    max-width: 1000px;
-    margin: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #1e1e1e;
-    box-shadow: 0 0 30px #000;
-  }
-  
-  header {
-    background: #2196F3;
-    color: #fff;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-  }
-  
-  header h1 {
-    font-size: 2.5rem;
-  }
-  
-  .number {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-  
-  .timer-box {
-    position: absolute;
-    top: 1rem;
-    right: 2rem;
-    font-size: 1.5rem;
-    background: #000;
-    padding: 0.4rem 1rem;
-    border-radius: 5px;
-    font-weight: bold;
-    color: #00ff91;
-  }
-  
-  main {
-    display: flex;
-    padding: 2rem;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-  }
-  
-  .left-panel, .right-panel {
-    flex: 1;
-    min-width: 280px;
-  }
-  
-  .guess {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 1.1rem;
-    margin: 0.5rem 0.3rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #2196F3;
-    color: white;
-    transition: background 0.3s;
-  }
-  
-  .btn:hover {
-    background-color: #1976d2;
-  }
-  
-  .start-btn {
-    background-color: #4CAF50;
-  }
-  
-  .again {
-    background-color: #f44336;
-  }
-  
-  .message {
-    font-size: 1.3rem;
-    margin: 1rem 0;
-  }
-  
-  .score-box p {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-  }
-  
-  .leaderboard-section {
-    margin-top: 2rem;
-  }
-  
-  .leaderboard-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  #leaderboard {
-    list-style: none;
-    padding: 0;
-  }
-  
-  #leaderboard li {
-    background: #2e2e2e;
-    padding: 0.5rem;
-    margin-bottom: 0.3rem;
-    border-radius: 5px;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.overlay {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--panel-color);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  max-width: 400px;
+}
+
+.hidden {
+  display: none;
+}
+
+.game-container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  border-radius: 10px;
+  background: var(--panel-color);
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+/* Header layout */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--button-color);
+  padding: 1.5rem 2rem;
+  color: white;
+  position: relative;
+}
+
+.header-left,
+.header-right {
+  flex: 0 0 auto;
+}
+
+.header-center {
+  text-align: center;
+  flex: 1;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.number {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.timer-box {
+  font-size: 1.3rem;
+  background: #000;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: var(--timer-color);
+}
+
+/* Panels */
+main {
+  display: flex;
+  padding: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  min-width: 280px;
+}
+
+.guess {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+body.light-mode .guess {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #888;
+}
+
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  margin: 0.5rem 0.3rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--button-color);
+  color: white;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+}
+
+.start-btn {
+  background-color: var(--success-color);
+}
+
+.again {
+  background-color: var(--danger-color);
+}
+
+.message {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}
+
+.score-box p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.leaderboard-section {
+  margin-top: 2rem;
+}
+
+.leaderboard-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#leaderboard {
+  list-style: none;
+  padding: 0;
+}
+
+#leaderboard li {
+  background: #2e2e2e;
+  color: #fff;
+  padding: 0.5rem;
+  margin-bottom: 0.3rem;
+  border-radius: 5px;
+}
+
+body.light-mode #leaderboard li {
+  background: #e0e0e0;   
+  color: #000;           
+}
+
+
+/* Theme toggle styles */
+.theme-switch {
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  position: relative;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: #444;
+  border-radius: 34px;
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  transition: background-color 0.3s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  left: 3px;
+  bottom: 3px;
+  background-color: #fff;
+  transition: transform 0.4s ease;
+}
+
+input:checked + .slider::before {
+  transform: translateX(30px);
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  pointer-events: none;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+input:checked + .slider .icon {
+  transform: translate(-50%, -50%) rotate(180deg);
+}
