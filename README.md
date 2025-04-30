@@ -10,7 +10,8 @@ A simple and interactive number-guessing game. The game challenges players to gu
 - **High Score System** – Stores the highest score achieved in a session.
 - **Leaderboard** – Keeps track of top 5 scores using local storage.
 - **Countdown Timer** – Guess the number before the 60-second countdown hits zero. 
-- **Responsive UI** – Fully functional across different screen sizes.  
+- **Responsive UI** – Fully functional across different screen sizes.
+- **Dark/Light** Theme Available 
 
 
 
